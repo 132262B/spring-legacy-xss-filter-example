@@ -1,0 +1,9 @@
+<%@page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="HOME" value="${pageContext.request.contextPath}"/>
+<c:set var="IMG" value="${HOME}/resources/image"/>
+<c:set var="JS" value="${HOME}/resources/js"/>
+<c:set var="CSS" value="${HOME}/resources/css"/>
+
+<link href="${CSS}/bootstrap.min.css" rel="stylesheet" />
