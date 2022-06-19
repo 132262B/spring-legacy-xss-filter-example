@@ -28,9 +28,12 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public HashMap<String, Object> boardDetailR(HashMap<String, Object> param) {
         HashMap<String, Object> map = boardDao.boardDetailR(param);
+
+        // 게시물 내용이 Null이 아니면 해당 내용에 TAG 사용을 할 수 있게 이스케이프 처리.
         if(map.get("content") != null) {
             map.put("content", ViewConverterUtil.toHtmlConverter(map.get("content")));
         }
+
         return map;
     }
 }
