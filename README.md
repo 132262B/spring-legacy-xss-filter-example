@@ -1,12 +1,23 @@
 # spring-legacy-xss-filter-example
-스프링 레거시 XSS필터 적용 예제
+#### 스프링 레거시 XSS필터 적용 예제
+<br>
 
+> ### 📎 &nbsp; 사용한 필터
+# [lucy-xss-servlet-filter ](https://github.com/naver/lucy-xss-servlet-filter "lucy-xss-servlet-filter")
 
-./spring_xss_filter_ex/  
-├── pom.xml  
-├── spring_xss_filter_ex.iml  
-├── src  
-├── main  
+<br>
+
+---
+
+<br>
+
+>### ⌨️ 프로젝트 구조
+<pre>
+./spring_xss_filter_ex
+├── pom.xml
+├── spring_xss_filter_ex.iml
+├── src
+├── main
 │   ├── java  
 │   │   └── com  
 │   │       └── board  
@@ -51,4 +62,7 @@
 └── test  
     ├── java  
     └── resources  
-   
+</pre>   
+
+---
+
