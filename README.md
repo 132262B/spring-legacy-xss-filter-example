@@ -20,6 +20,57 @@ XSS Filter로는 네이버에서 개발한 [lucy-xss-servlet-filter ](https://gi
 - spring 5.3.16
 - mybatis 3.5.9
 
+
+---
+
+<br>
+
+## 적용방법
+
+1. pom.xml 에 dependency 추가.
+
+```xml
+<dependency>
+	<groupId>com.navercorp.lucy</groupId>
+	<artifactId>lucy-xss-servlet</artifactId>
+	<version>2.0.0</version>
+</dependency>
+````
+2. web.xml 에 설정(filter) 추가.
+
+```xml
+<!-- encodingFilter -->
+<filter>
+	<filter-name>encodingFilter</filter-name>
+	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+	<init-param>
+		<param-name>encoding</param-name>
+		<param-value>UTF-8</param-value>
+	</init-param>
+</filter>
+<filter-mapping>
+	<filter-name>encodingFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+
+
+<!-- 여기서 xssEscapeServletFilter 는 encodingFilter 설정 아래에 있어야합니다. -->
+
+<filter>
+	<filter-name>xssEscapeServletFilter</filter-name>
+	<filter-class>com.navercorp.lucy.security.xss.servletfilter.XssEscapeServletFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>xssEscapeServletFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+````
+3. /resource 폴더 내에 "lucy-xss-servlet-filter-rule.xml" 파일을 생성. - [내용참조](https://github.com/132262B/spring-legacy-xss-filter-example/blob/master/src/main/resources/lucy-xss-servlet-filter-rule.xml "https://github.com/132262B/spring-legacy-xss-filter-example/blob/master/src/main/resources/lucy-xss-servlet-filter-rule.xml")
+
+4. lucy-xss-servlet-filter-rule.xml 필터링 룰 작성.
+
+<br>
+
 ---
 
 <br>
@@ -98,4 +149,3 @@ CREATE TABLE `board` (
 ---
 
 ## 
-
